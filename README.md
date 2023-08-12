@@ -1,8 +1,8 @@
 # O-DU
 
-## Preparation before compiling <sup>[1](https://hackmd.io/LZu1Ts19Qw6R_kP_smxRTA?view#Choices)</sup>
+## Preparation before compiling <sup>[ref](https://hackmd.io/LZu1Ts19Qw6R_kP_smxRTA?view#Choices)</sup>
 
-Download [G_Rel_l2.tar.gz](./G_Rel_l2.tar.gz.extension).
+Download [G_Rel_l2.tar.gz](./G_Rel_l2.tar.gz)
 
 ```bash
 cd /home/four/
@@ -78,7 +78,7 @@ vim /home/four/l2/src/mt/mt_ss.c
 + void* WLS_Open(const char *ifacename, unsigned int mode, uint64_t *nWlsMacMemorySize, uint64_t *nWlsPhyMemorySize, uint32_t nWlsULEnqueueSize);
 ```
 
-### install g++ & gcc <sup>[2](https://askubuntu.com/questions/1450426/need-gcc-and-g-4-8-in-ubuntu-22-04-1)</sup>
+### install g++ & gcc <sup>[ref](https://askubuntu.com/questions/1450426/need-gcc-and-g-4-8-in-ubuntu-22-04-1)</sup>
 
 The `gcc-4.8` and `g++-4.8` packages have been discontinued in the `Ubuntu 20.04` and later default repositories, but they are still available in the Ubuntu 18.04 default repositories. To install the `gcc-4.8` and `g++-4.8` packages from `Ubuntu 18.04` in `Ubuntu 22.04`, run the following commands:
 
@@ -116,7 +116,7 @@ gcc-4.8 --version
 mv /usr/bin/gcc-4.8 /usr/bin/gcc
 ```
 
-## Compile O-DU High with INTEL_L1 option <sup>[3](https://hackmd.io/DsgRSkR7RpSsdwmhdQEVNQ?view#Step-4-Compile-O-DU-High-with-INTEL_L1-option)</sup>
+## Compile O-DU High with INTEL_L1 option <sup>[ref](https://hackmd.io/DsgRSkR7RpSsdwmhdQEVNQ?view#Step-4-Compile-O-DU-High-with-INTEL_L1-option)</sup>
 
 ```bash
 cd /home/four/l2/build/odu/
