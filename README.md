@@ -72,8 +72,68 @@ cd /home/four/l2/build/src/
 
 make help
 
+https://hackmd.io/DsgRSkR7RpSsdwmhdQEVNQ?view#Step-4-Compile-O-DU-High-with-INTEL_L1-option        
 make clean_odu
 
+make odu PHY=INTEL_L1 MACHINE=BIT64 MODE=TDD 
+make clean_odu
+
+
+vim /home/four/l2/src/mt/mt_ss.c
+
+```patch
+- hdl = WLS_Open(WLS_DEVICE_NAME, WLS_MASTER_CLIENT, &nWlsMacMemorySize, &nWlsPhyMemorySize);
++ void* WLS_Open(const char *ifacename, unsigned int mode, uint64_t *nWlsMacMemorySize, uint64_t *nWlsPhyMemorySize, uint32_t nWlsULEnqueueSize);
+```
+
+make odu PHY=INTEL_L1 MACHINE=BIT64 MODE=TDD 
+make clean_odu
+
+cd ../../../
+
+mkdir install_g++-4.8
+cd install_g++-4.8/
+sudo apt update
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/g++-4.8_4.8.5-4ubuntu8_amd64.deb 
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/libstdc++-4.8-dev_4.8.5-4ubuntu8_amd64.deb 
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/gcc-4.8-base_4.8.5-4ubuntu8_amd64.deb 
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/gcc-4.8_4.8.5-4ubuntu8_amd64.deb 
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/libgcc-4.8-dev_4.8.5-4ubuntu8_amd64.deb 
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/cpp-4.8_4.8.5-4ubuntu8_amd64.deb 
+wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-4.8/libasan0_4.8.5-4ubuntu8_amd64.deb  
+sudo apt install ./gcc-4.8_4.8.5-4ubuntu8_amd64.deb ./gcc-4.8-base_4.8.5-4ubuntu8_amd64.deb ./libstdc++-4.8-dev_4.8.5-4ubuntu8_amd64.deb ./cpp-4.8_4.8.5-4ubuntu8_amd64.deb ./libgcc-4.8-dev_4.8.5-4ubuntu8_amd64.deb ./libasan0_4.8.5-4ubuntu8_amd64.deb ./g++-4.8_4.8.5-4ubuntu8_amd64.deb
+
+
+g++-4.8 --version
+
+![image](https://github.com/ShubhamKumar89/o-du/assets/97805339/5d84e9c6-6ef5-48a6-9840-9285659f5a84)
+
+gcc-4.8 --version
+
+![image](https://github.com/ShubhamKumar89/o-du/assets/97805339/498b906e-94b0-493f-a708-965033e897ec)
+
+mv /usr/bin/gcc-4.8 /usr/bin/gcc
+
+cd l2/build/odu/
+
+make clean_odu
+make odu PHY=INTEL_L1 MACHINE=BIT64 MODE=TDD 
+
+cd /opt/cek/intel-flexran/bin/nr5g/gnb/l1/
+./l1.sh -xran
+cd ../../../../
+source set_env_var.sh -d
+
+cd /opt/cek/intel-flexran/bin/nr5g/gnb/l1/
+./l1.sh -xran
+
+open new terminal
+
+cd /opt/cek/intel-flexran/
+source set_env_var.sh -d
+
+cd /home/four/l2/bin/cu_stub/
+sudo ./cu_stub
 
 
 
