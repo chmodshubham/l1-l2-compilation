@@ -2,7 +2,7 @@
 
 ## Preparation before compiling <sup>[ref](https://hackmd.io/LZu1Ts19Qw6R_kP_smxRTA?view#Choices)</sup>
 
-Download [G_Rel_l2.tar.gz](./G_Rel_l2.tar.gz)
+[Download G_Rel_l2.tar.gz](https://github.com/ShubhamKumar89/l1-l2-compilation/raw/main/G_Rel_l2.tar.gz)
 
 ```bash
 cd /home/four/
