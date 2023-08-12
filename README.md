@@ -74,8 +74,18 @@ vim /home/four/l2/src/mt/mt_ss.c
 ```
 
 ```patch
-- hdl = WLS_Open(WLS_DEVICE_NAME, WLS_MASTER_CLIENT, &nWlsMacMemorySize, &nWlsPhyMemorySize);
-+ void* WLS_Open(const char *ifacename, unsigned int mode, uint64_t *nWlsMacMemorySize, uint64_t *nWlsPhyMemorySize, uint32_t nWlsULEnqueueSize);
+#ifdef INTEL_L1_V20_03_ONWARDS
+-  hdl = WLS_Open(WLS_DEVICE_NAME, WLS_MASTER_CLIENT, &nWlsMacMemorySize, &nWlsPhyMemorySize);
++  void* WLS_Open(const char *ifacename, unsigned int mode, uint64_t *nWlsMacMemorySize, uint64_t *nWlsPhyMemorySize, uint32_t nWlsULEnqueueSize);
+   if(hdl == NULL)
+   {
+      printf("\nERROR: WLS_Open > DEVICE_NAME mismatch. WLS Device Name should be same as 'wls_dev_name' parameter in 'phycfg_xran.xml' file");
+   }
+#else
+   hdl = WLS_Open(WLS_DEVICE_NAME, WLS_MASTER_CLIENT, WLS_MEM_SIZE);
+#endif /*INTEL_L1_V20_03_ONWARDS*/
+
+#endif
 ```
 
 ### install g++ & gcc <sup>[ref](https://askubuntu.com/questions/1450426/need-gcc-and-g-4-8-in-ubuntu-22-04-1)</sup>
