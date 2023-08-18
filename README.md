@@ -16,7 +16,7 @@ cd l2/build/odu/
 vim makefile
 ```
 
-- Edit the wls/DPDK library according to your environment, for example:
+- Edit the wls & DPDK library according to your environment, for example:
 -       wls library  : -L/opt/cek/intel-flexran/wls_mod
 -       DPDK library : -L/opt/cek/dpdk-21.11/build/lib/
 
